@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import { posts } from '../../data/site';
+---
+<BaseLayout title="News & archive" description="News and historic posts from Ware Brass.">
+  <header class="page-hero"><div class="shell"><p class="eyebrow" style="color:var(--brass)">Since 2018 online</p><h1>News & archive</h1><p class="lede">Latest news, band updates and stories from the Ware Brass archive.</p></div></header>
+  <section class="section"><div class="shell card-grid">{posts.map((post) => <NewsCard post={post} />)}</div></section>
+</BaseLayout>

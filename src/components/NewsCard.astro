@@ -1,0 +1,13 @@
+---
+import { formatDate } from '../data/site';
+const { post } = Astro.props;
+const fallback = '/uploads/2018/05/cropped-WB-Main-Photo.jpg';
+---
+<a class="news-card" href={post.path}>
+  <img class="news-card__image" src={post.featuredImage || fallback} alt="" loading="lazy" />
+  <div class="news-card__body">
+    <time datetime={post.date}>{formatDate(post.date)}</time>
+    <h3>{post.title}</h3>
+    <p>{post.excerpt}{post.excerpt.length >= 220 ? '…' : ''}</p>
+  </div>
+</a>

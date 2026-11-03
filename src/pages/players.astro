@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sections: Array<[string, string[]]> = [
+  ['Musical Director', ['Jonathan Lockwood']],
+  ['Front Row Cornets', ['Stuart Black', 'Gerry Ruddock', 'Jill Rowlinson', 'Tom Huttlestone']],
+  ['Soprano', ['Mark Wrightson']],
+  ['Repiano', ['Simon Gafney']],
+  ['Second Cornets', ['Alison Clayton', 'Mark Smith']],
+  ['Third Cornets', ['Christine Solway', 'Adrian Temple']],
+  ['Flugelhorn', ['Mark Huttlestone']],
+  ['Tenor Horns', ['Richard Sved', 'Sarah Munn', 'Judy Claridge']],
+  ['Euphoniums', ['John Gaffney', 'Jim Gelder']],
+  ['Baritones', ['Steve Rongavaer-Boother', 'Lisa Huttlestone']],
+  ['Trombones', ['Adrian Ricketts', 'Toby Ricketts', 'Ian Wells']],
+  ['E♭ Basses', ['Bob Dutton', 'Sue Roberts']],
+  ['B♭ Basses', ['Adam Gale', 'Colin Higgins']],
+  ['Percussion', ['TBD', 'Fran Treadgold']],
+];
+---
+<BaseLayout title="The band" description="Meet the current Ware Brass line-up.">
+  <header class="page-hero">
+    <div class="shell"><p class="eyebrow" style="color:var(--brass)">The people behind the sound</p><h1>Meet the band</h1><p class="lede">The current Ware Brass line-up, from soprano cornet to percussion.</p></div>
+  </header>
+  <section class="section">
+    <div class="shell roster-grid">
+      {sections.map(([name, players]) => (
+        <section class="roster-section">
+          <h2>{name}</h2>
+          <ul>{players.map((player) => <li class:list={{ vacant: player === 'TBD' }}>{player === 'TBD' ? 'Position available' : player}</li>)}</ul>
+        </section>
+      ))}
+    </div>
+  </section>
+  <section class="section section--green">
+    <div class="shell section-head">
+      <div><p class="eyebrow" style="color:var(--brass)">Join the line-up</p><h2>Fancy a blow?</h2></div>
+      <div><p>We welcome visiting players and anyone looking for a new band. See our current vacancies or get in touch for a confidential chat.</p><p><a class="button button--brass" href="/vacancies/">View vacancies →</a></p></div>
+    </div>
+  </section>
+</BaseLayout>

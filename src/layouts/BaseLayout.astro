@@ -1,0 +1,95 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string | null;
+}
+
+const { title, description = site.description, image } = Astro.props;
+const fullTitle = title ? `${title} | ${site.name}` : `${site.name} — East Hertfordshire Brass Band`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/uploads/2018/05/cropped-Ware-Brass-Icon-32x32.jpg" sizes="32x32" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    {image && <meta property="og:image" content={new URL(image, Astro.site)} />}
+    <meta name="theme-color" content="#071a12" />
+    <title>{fullTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header__inner shell">
+        <a class="brand" href="/" aria-label="Ware Brass home">
+          <img src="/uploads/2018/05/cropped-Ware-Brass-Logo-1.jpg" alt="Ware Brass" width="272" height="90" />
+        </a>
+        <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span class="menu-icon" aria-hidden="true"></span></button>
+        <nav class="nav" id="site-nav" aria-label="Primary">
+          <a href="/concerts/">Events</a>
+          <div class="nav-group">
+            <a href="/about-ware-brass/">Our story <span aria-hidden="true">⌄</span></a>
+            <div class="nav-submenu">
+              <a href="/about-ware-brass/">Band history</a>
+              <a href="/musical-director/">Musical Director</a>
+              <a href="/friends-of-ware-brass/">Friends of Ware Brass</a>
+            </div>
+          </div>
+          <a href="/players/">The band</a>
+          <a href="/recordings/">Listen</a>
+          <a href="/news/">News & archive</a>
+          <a href="/vacancies/">Join us</a>
+          <a href="/subscribe/">Subscribe</a>
+          <a class="nav__cta" href="/contact-us/">Book the band</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer">
+      <div class="shell">
+        <div class="footer-grid">
+          <section>
+            <p class="eyebrow">Ware, Hertfordshire</p>
+            <h2>Music with<br />brass in its bones.</h2>
+          </section>
+          <section>
+            <h3>Rehearsals</h3>
+            <p>{site.rehearsal}<br />{site.rehearsalVenue}</p>
+            <a href="/vacancies/">Come and play with us →</a>
+          </section>
+          <section>
+            <h3>Keep in touch</h3>
+            <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+            <p><a href={site.social.facebook}>Facebook</a> · <a href={site.social.youtube}>YouTube</a> · <a href="/recordings/">Recordings</a></p>
+            <p><a href="/friends-of-ware-brass/">Become a Friend of Ware Brass</a></p>
+          </section>
+        </div>
+        <div class="footer-bottom">
+          <span>© {new Date().getFullYear()} Ware Brass</span>
+          <span>Making music in Hertfordshire since 1894</span>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const button = document.querySelector('.menu-button');
+      const nav = document.querySelector('#site-nav');
+      button?.addEventListener('click', () => {
+        const open = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!open));
+        button.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+        nav?.setAttribute('data-open', String(!open));
+      });
+    </script>
+  </body>
+</html>

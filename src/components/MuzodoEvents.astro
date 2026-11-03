@@ -1,0 +1,49 @@
+---
+import { site } from '../data/site';
+---
+<div class="events-card">
+  <div id="upcomingEventsDiv" class="events-loading" aria-live="polite">
+    <p>Loading upcoming performances…</p>
+  </div>
+  <noscript>Please enable JavaScript to view upcoming engagements, or <a href={`mailto:${site.email}`}>contact the band</a>.</noscript>
+</div>
+<script is:inline define:vars={{ apiKey: site.muzodoKey }}>
+  (() => {
+    const target = document.getElementById('upcomingEventsDiv');
+    if (!target) return;
+    const endpoint = `https://muzodo.com/api/v1/group/${apiKey}/events?eventType=PUBLIC`;
+    const element = (tag, className, text) => {
+      const node = document.createElement(tag);
+      node.className = className;
+      node.textContent = text;
+      return node;
+    };
+    fetch(endpoint)
+      .then((response) => {
+        if (!response.ok) throw new Error(`Muzodo returned ${response.status}`);
+        return response.json();
+      })
+      .then((events) => {
+        target.replaceChildren();
+        target.classList.remove('events-loading');
+        if (!events.length) {
+          target.append(element('p', '', 'No upcoming performances are listed just now. Please check back soon.'));
+          return;
+        }
+        const list = element('ol', 'myEventList', '');
+        for (const event of events) {
+          const item = element('li', 'myEventListItem', '');
+          item.append(element('div', 'myEventTitle', event.Name));
+          const times = event.FormattedPlayTime === 'TBD' ? '' : `, ${event.FormattedPlayTime}–${event.FormattedEndTime}`;
+          item.append(element('div', 'myEventDetail', `${event.FormattedDate}${times}`));
+          if (event.Address) item.append(element('div', 'myEventDetail', event.Address));
+          list.append(item);
+        }
+        target.append(list);
+      })
+      .catch((error) => {
+        console.error('Could not load Muzodo events', error);
+        target.replaceChildren(element('p', '', 'Upcoming performances are temporarily unavailable. Please check back soon.'));
+      });
+  })();
+</script>

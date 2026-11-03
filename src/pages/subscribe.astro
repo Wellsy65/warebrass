@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const mailchimpAction = import.meta.env.PUBLIC_MAILCHIMP_FORM_ACTION;
+const configured = Boolean(mailchimpAction && !mailchimpAction.includes('YOUR_'));
+---
+<BaseLayout title="Subscribe">
+  <header class="page-hero"><div class="shell"><p class="eyebrow" style="color:var(--brass)">Friends of Ware Brass</p><h1>Stay in the loop</h1><p class="lede">Concert announcements and occasional news from the band.</p></div></header>
+  <section class="section">
+    <div class="shell subscribe-layout">
+      <div>
+        <p class="eyebrow">Friends of Ware Brass</p>
+        <h2>News worth hearing.</h2>
+        <p class="lede">Sign up for concert announcements, appearances and occasional news from the band.</p>
+        <p>We use email as the primary way to contact Friends of Ware Brass. Your details will only be used for band news and will not be shared with other people or organisations.</p>
+        <p>You can ask to be removed at any time by emailing <a href="mailto:warebrass@outlook.com">warebrass@outlook.com</a>.</p>
+      </div>
+      <form class="subscribe-form" action={configured ? mailchimpAction : undefined} method="post" target="_blank">
+        <div class="form-row">
+          <label>First name<input type="text" name="FNAME" autocomplete="given-name" /></label>
+          <label>Last name<input type="text" name="LNAME" autocomplete="family-name" /></label>
+        </div>
+        <label>Email address <span aria-hidden="true">*</span><input type="email" name="EMAIL" autocomplete="email" required /></label>
+        <label>Phone number<input type="tel" name="PHONE" autocomplete="tel" /></label>
+        <label>Street address<input type="text" name="ADDRESS[addr1]" autocomplete="street-address" /></label>
+        <div class="form-row">
+          <label>Town or city<input type="text" name="ADDRESS[city]" autocomplete="address-level2" /></label>
+          <label>Postcode<input type="text" name="ADDRESS[zip]" autocomplete="postal-code" /></label>
+        </div>
+        {configured ? (
+          <button class="button button--brass" type="submit">Join the mailing list →</button>
+        ) : (
+          <div class="form-pending" role="status"><strong>Signup connection pending</strong><span>The form is ready; its Mailchimp endpoint still needs to be added.</span></div>
+        )}
+        <p class="form-note">Mailchimp will send a confirmation email to complete your signup.</p>
+      </form>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { attachments } from '../data/site';
+const images = attachments.filter((item) => /\.(?:jpe?g|png|webp)$/i.test(item.url)).filter((item) => !/-\d+x\d+\./.test(item.url));
+---
+<BaseLayout title="Gallery" description="Photographs from the Ware Brass archive.">
+  <header class="page-hero"><div class="shell"><p class="eyebrow" style="color:var(--brass)">Across the years</p><h1>In pictures</h1><p class="lede">Performances, people and moments from the Ware Brass archive.</p></div></header>
+  <section class="section"><div class="shell gallery-grid">{images.map((image) => <figure><img src={image.url} alt={image.alt || image.caption || image.title || 'Ware Brass archive photograph'} loading="lazy" /></figure>)}</div></section>
+</BaseLayout>

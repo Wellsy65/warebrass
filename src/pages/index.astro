@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MuzodoEvents from '../components/MuzodoEvents.astro';
+import NewsCard from '../components/NewsCard.astro';
+import { posts } from '../data/site';
+const latest = posts.slice(0, 3);
+---
+<BaseLayout>
+  <section class="hero">
+    <div class="hero__content shell">
+      <p class="eyebrow">East Hertfordshire · Est. 1894</p>
+      <h1>Big sound.<br />Warm welcome.</h1>
+      <div class="hero__foot">
+        <a class="button button--brass" href="/concerts/">Hear us live <span class="arrow">↗</span></a>
+        <a class="button" href="/contact-us/">Book the band</a>
+        <p class="hero__note">A traditional brass band with more than 150 years of music-making behind us—and plenty still to play.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <span>Concerts</span><span>Contests</span><span>Community</span><span>Weddings</span><span>Festivals</span><span>Celebrations</span>
+      <span>Concerts</span><span>Contests</span><span>Community</span><span>Weddings</span><span>Festivals</span><span>Celebrations</span>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="shell story-grid">
+      <div class="story-photo">
+        <img src="/uploads/2024/10/63029b99-890d-4af3-9424-572bfe0b88fa.jpeg" alt="Ware Brass performing under musical director Jonathan Lockwood" width="1600" height="1200" />
+      </div>
+      <div>
+        <p class="eyebrow">Our band</p>
+        <h2>Proudly Ware.<br />Unmistakably Brass.</h2>
+        <p class="lede">From our beginnings in Victorian Hertfordshire to today’s concert and contest stages, Ware Brass brings people together through bold, joyful live music.</p>
+        <p>We perform as a full traditional brass band or a compact ten-piece ensemble, bringing the right sound to concerts, community occasions, weddings, festivals and private events.</p>
+        <div class="button-row">
+          <a class="button button--dark" href="/about-ware-brass/">Read our story <span class="arrow">→</span></a>
+          <a class="button" href="/10-piece-band/">Our ten-piece band <span class="arrow">→</span></a>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><strong>25</strong><span>piece full band</span></div>
+          <div class="stat"><strong>10</strong><span>piece ensemble</span></div>
+          <div class="stat"><strong>150+</strong><span>years of music</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--green">
+    <div class="shell">
+      <div class="section-head">
+        <div><p class="eyebrow" style="color:var(--brass)">What’s on</p><h2>Come and hear us.</h2></div>
+        <p>Concerts, contests and community appearances—live from Muzodo, so this list is always the latest.</p>
+      </div>
+      <MuzodoEvents />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-head">
+        <div><p class="eyebrow">From the bandroom</p><h2>Latest notes.</h2></div>
+        <p>News, results, announcements and stories from the Ware Brass archive.</p>
+      </div>
+      <div class="card-grid">
+        {latest.map((post) => <NewsCard post={post} />)}
+      </div>
+      <p style="margin-top:2rem"><a class="button button--dark" href="/news/">Explore the archive <span class="arrow">→</span></a></p>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="shell join-panel">
+      <div class="join-panel__copy">
+        <p class="eyebrow" style="color:var(--brass)">Pull up a chair</p>
+        <h2>There’s a place for you here.</h2>
+        <p>We welcome experienced brass and percussion players, whether you’re looking for a band or simply visiting the area. Rehearsals are Monday evenings in High Cross.</p>
+        <a class="button button--brass" href="/vacancies/">Current vacancies <span class="arrow">→</span></a>
+      </div>
+      <div class="join-panel__image" role="img" aria-label="Members of Ware Brass performing"></div>
+    </div>
+  </section>
+</BaseLayout>

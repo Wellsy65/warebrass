@@ -1,0 +1,23 @@
+{
+  "name": "warebrass",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "import:wordpress": "node scripts/import-wordpress.mjs",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "@astrojs/check": "latest",
+    "astro": "latest",
+    "fast-xml-parser": "latest",
+    "turndown": "latest"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3",
+    "wrangler": "latest"
+  }
+}

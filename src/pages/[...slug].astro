@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RehearsalMap from '../components/RehearsalMap.astro';
+import { pages, posts, formatDate } from '../data/site';
+
+export function getStaticPaths() {
+  const reserved = new Set(['/10-piece-band/', '/about-ware-brass/', '/concerts/', '/contact-us/', '/gallery/', '/players/', '/recordings/', '/subscribe/']);
+  return [...pages, ...posts]
+    .filter((entry) => !reserved.has(entry.path))
+    .map((entry) => ({
+      params: { slug: entry.path.replace(/^\/+|\/+$/g, '') },
+      props: { entry },
+    }));
+}
+const { entry } = Astro.props;
+const isPost = entry.type === 'post';
+---
+<BaseLayout title={entry.title} description={entry.excerpt} image={entry.featuredImage}>
+  <header class="page-hero">
+    <div class="shell">
+      <p class="eyebrow" style="color:var(--brass)">{isPost ? 'Band news' : 'Ware Brass'}</p>
+      <h1>{entry.title}</h1>
+      {isPost && <p><time datetime={entry.date}>{formatDate(entry.date)}</time></p>}
+    </div>
+  </header>
+  <section class="section">
+    <div class="shell content-layout">
+      <article class="prose" set:html={entry.html}></article>
+      <aside class="sidebar">
+        <h2>{isPost ? 'Explore more' : 'Ware Brass'}</h2>
+        <ul>
+          {entry.path === '/about-ware-brass/' && <li><a href="/musical-director/">Meet our Musical Director</a></li>}
+          {isPost && <li><a href="/news/">News & archive</a></li>}
+          <li><a href="/concerts/">Upcoming events</a></li>
+          <li><a href="/about-ware-brass/">Our story</a></li>
+          <li><a href="/contact-us/">Contact the band</a></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+  {entry.path === '/vacancies/' && <RehearsalMap />}
+</BaseLayout>

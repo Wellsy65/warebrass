@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+import RehearsalMap from '../components/RehearsalMap.astro';
+---
+<BaseLayout title="Contact us" description="Contact Ware Brass about bookings, joining the band or visiting a rehearsal.">
+  <header class="page-hero">
+    <div class="shell"><p class="eyebrow" style="color:var(--brass)">Let’s talk brass</p><h1>Contact Ware Brass</h1><p class="lede">Book the band, ask about joining, or arrange to visit a Monday rehearsal.</p></div>
+  </header>
+
+  <section class="section">
+    <div class="shell contact-grid">
+      <div>
+        <p class="eyebrow">Key contacts</p>
+        <h2>Speak to the band.</h2>
+        <div class="contact-cards">
+          <article class="contact-card">
+            <span>Chair</span><h3>Lisa Huttlestone</h3><a href="tel:+447860163087">07860 163087</a>
+          </article>
+          <article class="contact-card">
+            <span>Secretary</span><h3>Mark Huttlestone</h3><a href="tel:+447761717759">07761 717759</a>
+          </article>
+          <article class="contact-card contact-card--email">
+            <span>Email</span><h3>General enquiries</h3><a href={`mailto:${site.email}`}>{site.email}</a>
+          </article>
+        </div>
+      </div>
+      <aside class="booking-panel">
+        <p class="eyebrow" style="color:var(--brass)">Book Ware Brass</p>
+        <h2>Bring the music to your event.</h2>
+        <p>Tell us the date, venue and kind of occasion. We’ll help you choose the line-up and music that best fit your event.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section booking-options-section">
+    <div class="shell">
+      <div class="section-head">
+        <div><p class="eyebrow">Choose your line-up</p><h2>Two ways to make an impact.</h2></div>
+        <p>Both line-ups bring the unmistakable Ware Brass sound. The difference is scale, space and the kind of occasion you’re planning.</p>
+      </div>
+      <div class="booking-options">
+        <article class="booking-option booking-option--full">
+          <p class="eyebrow">The full band</p>
+          <h3>25-piece brass band</h3>
+          <p>Our complete traditional brass-band line-up delivers the richest sound and greatest visual impact.</p>
+          <ul><li>Concerts and festivals</li><li>Large community occasions</li><li>Public and private functions</li><li>Indoor or outdoor performances</li></ul>
+          <a class="button button--brass" href={`mailto:${site.email}?subject=Full band booking enquiry`}>Enquire about the full band →</a>
+        </article>
+        <article class="booking-option">
+          <p class="eyebrow">The flexible ensemble</p>
+          <h3>Ten-piece band</h3>
+          <p>A compact line-up with a big brass sound, well suited to smaller venues and more intimate occasions.</p>
+          <ul><li>Weddings</li><li>Celebrations and parties</li><li>Smaller public events</li><li>Venues with limited space</li></ul>
+          <div class="button-row"><a class="button button--dark" href="/10-piece-band/">Explore the ten-piece band →</a><a class="button" href={`mailto:${site.email}?subject=Ten-piece band booking enquiry`}>Make an enquiry</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <RehearsalMap />
+</BaseLayout>

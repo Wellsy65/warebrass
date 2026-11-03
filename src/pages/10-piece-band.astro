@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout title="Ten-piece band" description="Book the Ware Brass ten-piece ensemble for weddings, celebrations and smaller events.">
+  <header class="page-hero">
+    <div class="shell">
+      <p class="eyebrow" style="color:var(--brass)">A smaller line-up. The full Ware Brass spirit.</p>
+      <h1>Meet our ten-piece band</h1>
+      <p class="lede">A flexible brass ensemble for weddings, celebrations and events where the full 25-piece band isn’t the right fit.</p>
+    </div>
+  </header>
+  <section class="section">
+    <div class="shell story-grid">
+      <div>
+        <p class="eyebrow">Book the ensemble</p>
+        <h2>Big brass sound.<br />Made for your space.</h2>
+        <p class="lede">Our ten-piece band brings the colour, warmth and energy of Ware Brass to smaller venues and occasions.</p>
+        <p>Tell us about your event and we’ll help you choose the right line-up and music. We’re available for weddings, celebrations and other public or private events.</p>
+        <p><a class="button button--dark" href={`mailto:${site.email}?subject=Ten-piece band booking enquiry`}>Enquire about a booking <span class="arrow">→</span></a></p>
+        <p>Prefer to talk first? Visit our <a href="/contact-us/">contact page</a> for the band secretary’s details.</p>
+      </div>
+      <img src="/uploads/2018/05/IMG_4889.jpg" alt="Ware Brass musicians performing" style="border-radius:var(--radius);aspect-ratio:4/3;object-fit:cover" />
+    </div>
+  </section>
+  <section class="section section--green">
+    <div class="shell section-head">
+      <div><p class="eyebrow" style="color:var(--brass)">Need the full band?</p><h2>Twenty-five players.<br />One unmistakable sound.</h2></div>
+      <div><p>For concerts, festivals and larger occasions, the full Ware Brass line-up may be just what you need.</p><p><a class="button button--brass" href="/contact-us/">Ask about the full band →</a></p></div>
+    </div>
+  </section>
+</BaseLayout>

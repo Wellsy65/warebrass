@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About Ware Brass" description="The story of Ware Brass, making music in Hertfordshire since 1894.">
+  <header class="page-hero about-hero">
+    <div class="shell">
+      <p class="eyebrow" style="color:var(--brass)">Our story</p>
+      <h1>Brass in Ware since 1894.</h1>
+      <p class="lede">One of the oldest brass bands in the South of England—and still proudly at the heart of our town.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="shell story-grid">
+      <div>
+        <p class="eyebrow">Ware, Hertfordshire</p>
+        <h2>A band with deep roots and a lively future.</h2>
+        <p class="lede">Ware Brass is a traditional brass band with a busy programme of concerts, community events and competitions.</p>
+        <p>Our full 25-piece band performs throughout the year, while our smaller ten-piece ensemble brings the Ware Brass sound to more intimate occasions. We welcome visiting players at rehearsal and are always pleased to hear from musicians interested in joining us.</p>
+        <div class="button-row">
+          <a class="button button--dark" href="/concerts/">See us live <span aria-hidden="true">→</span></a>
+          <a class="button" href="/contact-us/">Book the band <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="story-photo">
+        <img src="/uploads/2018/05/WB-Main-Photo-1024x539.jpg" alt="Ware Brass performing together" width="1024" height="539" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark history-section">
+    <div class="shell">
+      <div class="section-head">
+        <div><p class="eyebrow" style="color:var(--brass)">A brief history</p><h2>More than a century of music.</h2></div>
+        <p>From a nineteenth-century town band to today’s concert stage, Ware Brass has evolved with the generations while keeping its local identity.</p>
+      </div>
+
+      <div class="history-list">
+        <article class="history-item">
+          <div class="history-date">1894</div>
+          <div class="history-copy"><h3>The Ware Band begins</h3><p>There is evidence of brass and wind music in Ware from the mid-nineteenth century. The formation of an association of bands in London and the Home Counties in 1894 gives us the date now recognised as the band’s official beginning.</p></div>
+        </article>
+        <article class="history-item history-item--image">
+          <div class="history-date">1930s–60s</div>
+          <img src="/uploads/2018/05/Ware-Brass-1967-150x150.gif" alt="Ware Town Band in 1967" width="150" height="150" />
+          <div class="history-copy"><h3>The Ware Town Band</h3><p>With help from the Co-operative Society, Ware became an all-brass band between the two world wars. The Co-op financed its first uniforms, originally worn by the celebrated CWS Manchester Band. Ware flourished through the 1930s and 1940s under the Carter brothers, followed by Alf Hulls and Doug Lockerby.</p></div>
+        </article>
+        <article class="history-item history-item--image">
+          <div class="history-date">1978</div>
+          <img src="/uploads/2018/05/Ware-Brass-1978-150x150.gif" alt="Ware Brass in 1978" width="150" height="150" />
+          <div class="history-copy"><h3>A new name and new colours</h3><p>The band dropped “Town” from its name and became Ware Brass. Under John Sharples, new deep-blue uniforms followed in 1979. With support from Ware Town Council, local industry and individual contributors, the band later acquired new instruments and returned to its familiar green.</p></div>
+        </article>
+        <article class="history-item history-item--image">
+          <div class="history-date">2001</div>
+          <img src="/uploads/2018/05/Ware-Brass-2002-150x150.jpg" alt="Ware Brass in 2002" width="150" height="150" />
+          <div class="history-copy"><h3>Climbing the sections</h3><p>Kenny Durbin became Musical Director and led Ware Brass to a succession of entertainment and National contest successes. Over the next three years, the band rose from the Fourth to the Second Section.</p></div>
+        </article>
+        <article class="history-item history-item--image">
+          <div class="history-date">2006–17</div>
+          <img src="/uploads/2018/05/IMG_4876-300x225.jpg" alt="Ware Brass performing during Phillip Littlemore's tenure" width="300" height="225" />
+          <div class="history-copy"><h3>Concerts to remember</h3><p>Phillip Littlemore placed concert-giving at the centre of band life. Ware’s November Concert Spectaculars became local favourites, while continued contest success brought promotion to the First Section in 2014. Phillip’s eleven-year tenure ended when his family moved to the Isle of Wight.</p></div>
+        </article>
+        <article class="history-item history-item--image">
+          <div class="history-date">Today</div>
+          <img src="/uploads/2024/10/IMG-20230418-WA0011.jpg" alt="Jonathan Lockwood, Musical Director of Ware Brass" width="768" height="1024" />
+          <div class="history-copy"><h3>The next chapter</h3><p>Led by Musical Director Jonathan Lockwood, Ware Brass continues to entertain audiences, represent the town and build on a proud musical tradition.</p><a href="/musical-director/">Meet our Musical Director →</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell join-panel">
+      <div class="join-panel__copy">
+        <p class="eyebrow" style="color:var(--brass)">Be part of the story</p>
+        <h2>Play, listen or support.</h2>
+        <p>Come to a concert, sit in at a rehearsal, join the band or become a Friend of Ware Brass.</p>
+        <div class="button-row">
+          <a class="button button--brass" href="/vacancies/">Join us</a>
+          <a class="button" href="/friends-of-ware-brass/">Become a Friend</a>
+        </div>
+      </div>
+      <div class="join-panel__image" role="img" aria-label="Ware Brass musicians performing"></div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-hero { background: linear-gradient(90deg, rgba(3,16,10,.96), rgba(3,16,10,.62)), url('/uploads/2024/10/cropped-63029b99-890d-4af3-9424-572bfe0b88fa.jpeg') center 28% / cover; }
+  .about-hero .lede { margin-bottom: 0; }
+  .history-list { border-top: 1px solid rgba(255,255,255,.2); }
+  .history-item { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: clamp(1.5rem, 5vw, 5rem); padding: 2.25rem 0; border-bottom: 1px solid rgba(255,255,255,.2); }
+  .history-item--image { grid-template-columns: 8rem 9.375rem minmax(0, 1fr); }
+  .history-date { color: var(--brass); font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+  .history-item img { width: 9.375rem; aspect-ratio: 1; object-fit: cover; border-radius: .6rem; }
+  .history-copy h3 { margin: 0 0 .65rem; color: white; font-family: 'Newsreader', serif; font-size: clamp(1.6rem, 3vw, 2.25rem); }
+  .history-copy p { max-width: 48rem; margin: 0; color: rgba(255,255,255,.74); }
+  .history-copy a { display: inline-block; margin-top: 1rem; color: var(--brass); font-weight: 700; }
+  .join-panel .button:not(.button--brass) { color: white; }
+  @media (max-width: 680px) {
+    .history-item, .history-item--image { grid-template-columns: 1fr; gap: .75rem; }
+    .history-item img { width: 7rem; }
+  }
+</style>

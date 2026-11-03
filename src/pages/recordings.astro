@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const tracks = [
+  { title: 'Malagueña', credit: 'Ernesto Lecuona', duration: '2:37' },
+  { title: 'Choreography', credit: 'Robert Sheldon', duration: '5:36' },
+  { title: 'My Funny Valentine', credit: 'Richard Rodgers / Lorenz Hart', duration: '3:02', feature: 'Principal Cornet Mark Huttlestone' },
+  { title: 'Anything Goes!', credit: 'Cole Porter', duration: '2:30' },
+  { title: 'A String of Pearls', credit: 'Jerry Gray / Eddie DeLange', duration: '3:19' },
+  { title: 'Pure Imagination', credit: 'Anthony Newley / Leslie Bricusse', duration: '3:02', feature: 'Solo Trombone Graham Evans' },
+  { title: 'Birdland', credit: 'Josef Zawinul', duration: '4:42' },
+  { title: 'There’s No Business Like Show Business', credit: 'Irving Berlin', duration: '2:59' },
+  { title: 'Satin N’ Glass', credit: 'Sammy Nestico', duration: '3:45', feature: 'Flugelhorn Mike Burstow' },
+  { title: 'Poinciana', credit: 'Buddy Bernier / Nat Simon', duration: '4:15' },
+  { title: 'Chicago', credit: 'John Kander / Fred Ebb', duration: '6:15' },
+  { title: 'Theme from New York, New York', credit: 'John Kander / Fred Ebb', duration: '3:06', feature: 'Vocal soloist John Sharples' },
+  { title: 'The Seal Lullaby', credit: 'Eric Whitacre', duration: '3:30' },
+  { title: 'Theme from Exodus', credit: 'Ernest Gold', duration: '2:38' },
+  { title: 'Largo al factotum', credit: 'Gioachino Rossini', duration: '3:50', feature: 'Solo Euphonium John Gafney' },
+  { title: 'Keystone Kops', credit: 'Carl Davis', duration: '2:13' },
+];
+---
+<BaseLayout title="Recordings" description="Choreography, a recording of highlights from Ware Brass concert spectaculars.">
+  <header class="page-hero">
+    <div class="shell"><p class="eyebrow" style="color:var(--brass)">Ware Brass on record</p><h1>Choreography</h1><p class="lede">Highlights from our concert spectaculars—music from the forties, movies, musicals, big band, opera and the Wild West.</p></div>
+  </header>
+  <section class="section">
+    <div class="shell recording-layout">
+      <div class="recording-intro">
+        <p class="eyebrow">The album</p>
+        <h2>Sixteen tracks.<br />One big sound.</h2>
+        <p>This CD captures the range and character of Ware Brass, with featured soloists from the band.</p>
+        <a class="button button--dark" href="mailto:warebrass@outlook.com?subject=Choreography CD enquiry">Ask about the CD →</a>
+      </div>
+      <ol class="track-list">
+        {tracks.map((track) => (
+          <li>
+            <span class="track-number" aria-hidden="true"></span>
+            <span class="track-copy"><strong>{track.title}</strong><span>{track.credit}</span>{track.feature && <em>Featuring {track.feature}</em>}</span>
+            <time>{track.duration}</time>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+</BaseLayout>

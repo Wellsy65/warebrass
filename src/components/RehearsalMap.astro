@@ -1,0 +1,15 @@
+---
+import { site } from '../data/site';
+const mapUrl = 'https://www.google.com/maps?q=High+Cross+Village+Hall,+North+Drive,+High+Cross,+Ware+SG11+1AN&output=embed';
+---
+<section class="map-section">
+  <div class="shell map-grid">
+    <div class="map-copy">
+      <p class="eyebrow">Find a rehearsal</p>
+      <h2>High Cross Village Hall</h2>
+      <p>{site.rehearsal}<br />{site.rehearsalVenue}</p>
+      <p>Please contact the band before coming along so we know to expect you.</p>
+    </div>
+    <iframe class="map" src={mapUrl} title="Map showing High Cross Village Hall" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+  </div>
+</section>

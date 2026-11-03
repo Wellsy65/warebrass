@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MuzodoEvents from '../components/MuzodoEvents.astro';
+---
+<BaseLayout title="Events" description="Upcoming Ware Brass concerts, contests and engagements.">
+  <header class="page-hero"><div class="shell"><p class="eyebrow" style="color:var(--brass)">Live and in person</p><h1>Hear Ware Brass</h1><p class="lede">Our latest concerts, contests and community engagements, updated directly from Muzodo.</p></div></header>
+  <section class="section section--green"><div class="shell"><MuzodoEvents /></div></section>
+  <section class="section"><div class="shell story-grid"><div><p class="eyebrow">Bring the band to you</p><h2>Make an occasion sing.</h2><p class="lede">From a ten-piece ensemble to the full sound of a traditional 25-piece brass band, we tailor the line-up and music to your event.</p><div class="button-row"><a class="button button--dark" href="/contact-us/">Discuss your event →</a><a class="button" href="/10-piece-band/">Meet the ten-piece band →</a></div></div><img src="/uploads/2022/03/Ware-Brass-Areas-Picture.jpg" alt="Ware Brass on stage" style="border-radius:var(--radius)" /></div></section>
+</BaseLayout>
